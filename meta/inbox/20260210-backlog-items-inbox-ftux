@@ -1,3 +1,4 @@
 [] thoughtful approach to cinnect this inbox with home-brain inbox; eg in VSC/harness, add home-vrain-inbox lovally, create skill or other routine to check that inbox for things related to this project, when added, mark intentionally (eg should it he processed hy home brain too?) replicate pattern in other active projects
 [] create meta/onboarding: create sylabus of the basic parts of the harness; checklist when each component has been demonstrated, plus reference ti where/how it was demonstrated ince complete; instructions to coding agent (skill?) for initial ftux
 [] handling for tasks that are large/conplex, have associated file or folder for completion; maybe distinction between todo/task/project?
+[] often an inbox item will have a scooe that is known to the user but not the agent; triage should look for, or in ambiguous cases ask for, assistance in scoping the triage (eg processing a minthly leadership update for parent org, user could provide that context)
