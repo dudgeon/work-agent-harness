@@ -28,3 +28,9 @@ Tracks significant changes to the harness framework itself (not domain content).
 - Created skills/template-propagation.md — update derived documents when templates change structurally
 - Created skills/stakeholder-intelligence.md — proximity-based relationship tracking, guided new-person onboarding, multi-person interaction updates
 - Created skills/source-processing.md — generic source capture → knowledge pipeline with topic lifecycle, frontmatter-based topic discovery, initialization workflow
+
+## 2026-02-10 — Inbox Triage & Documentation
+
+- Processed meta/inbox item (dictated backlog ideas) → 4 new backlog items on roadmap: cross-repo inbox bridging, FTUX onboarding, task complexity tiers, inbox triage scoping
+- Created meta/inbox/_archive/ structure
+- Updated tasks.md with domain clustering, completed items, remaining port triage items

@@ -39,3 +39,7 @@ Working through home-brain's `.claude/` files one at a time, adapting for corpor
 - [ ] Competitive analysis template
 - [ ] INDEX.md (when there's content to index)
 - [ ] skills/dictation-processing.md — lightweight voice-specific overlay (homonyms, speech artifacts, pronoun resolution) on top of inbox-triage + entity-verification
+- [ ] Cross-repo inbox bridging — give agents in this repo visibility into home-brain/inbox (e.g., add folder to VSC project scope); detect items relevant to this project; mark routing intentionally (process here, there, or both); replicate pattern for other active project repos
+- [ ] FTUX onboarding experience — agent instructions + task list + infra for first-time users of a new harness instance; syllabus of core primitives/concepts to explore; questions agent should ask a new user; checklist tracking when each component has been demonstrated with references to where/how
+- [ ] Task complexity tiers — extend tasks.md to support medium-complexity tasks (bigger than a todo, smaller than a multi-month project); think through what additional structure medium tasks need (associated files, subtasks, progress tracking) without over-engineering into full project management
+- [ ] Inbox triage scoping — triage should detect when items carry implicit scope the agent doesn't know and proactively ask for context; support pre-registering recurring item patterns (e.g., "monthly leadership update" = parent org summary, covers X teams, user cares about Y) so the agent learns the pattern once
