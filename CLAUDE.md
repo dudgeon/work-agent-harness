@@ -10,6 +10,7 @@ Load these every session:
 - @rules/philosophy.md
 - @rules/communication.md
 - @rules/context-management.md
+- @rules/git-workflow.md
 
 ## Session Start
 

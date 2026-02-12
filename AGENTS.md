@@ -13,6 +13,7 @@ These define how to think and act — load every session:
 - [rules/philosophy.md](rules/philosophy.md) — Core principles: second brain, not notepad
 - [rules/communication.md](rules/communication.md) — Style, ask-vs-do heuristic, session retros
 - [rules/context-management.md](rules/context-management.md) — Fact retention, detect-route-update pattern
+- [rules/git-workflow.md](rules/git-workflow.md) — Git caddy: proactive version control for non-technical users
 
 ## Session Start Protocol
 
