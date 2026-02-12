@@ -1,6 +1,6 @@
 ---
 created: 2026-02-09
-updated: 2026-02-11
+updated: 2026-02-12
 tags: [meta, tasks]
 status: active
 ---
@@ -19,7 +19,7 @@ Tasks may also appear in domain-specific files for local context, but this file 
 
 Remaining items from home-brain port (interactive triage — discuss before building):
 
-- [ ] rules/git-workflow.md — commit discipline, session reminders; likely fold into communication.md rather than standalone rule @agent
+- [x] rules/git-workflow.md — standalone always-loaded rule, "git caddy" posture; communication.md updated to defer to it done:2026-02-12
 - [ ] rules/mcp-optimization.md — writing for discoverability; relevance TBD @agent
 - [ ] newsworthy-events.md — likely skip, too personal/family-specific @agent
 
