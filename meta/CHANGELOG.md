@@ -29,6 +29,18 @@ Tracks significant changes to the harness framework itself (not domain content).
 - Created skills/stakeholder-intelligence.md — proximity-based relationship tracking, guided new-person onboarding, multi-person interaction updates
 - Created skills/source-processing.md — generic source capture → knowledge pipeline with topic lifecycle, frontmatter-based topic discovery, initialization workflow
 
+## 2026-02-13 — Domain Source Synthesis Pattern & Template Evolution
+
+- **Named the domain-source-synthesis pattern** — canonical name for the reusable "capture sources → extract atomic knowledge → build knowledge base" architecture that originated in home-brain's ai-pm-craft domain
+- Renamed skills/source-processing.md → skills/domain-source-synthesis.md — the skill now documents both the pattern architecture and the operational procedure
+- Added domain-level scoping: domains declare `pattern: domain-source-synthesis` in frontmatter and include a Source Synthesis Scope section defining learning goal, in/out scope, quality bar, and classification approach
+- Promoted from ai-pm-craft: taxonomy mechanism, featured entry marking, note source handling, workflow decomposition guidance
+- Added domain-specific extension mechanism via `meta/processing-guide.md` within domains
+- Updated inbox-triage.md with source-synthesis domain detection section
+- Restored "Number all items" rule to communication.md (accidentally dropped during formalization from home-brain)
+- Updated all agent mirrors (.claude/skills/, .windsurf/skills/)
+- Created home-brain backpropagation spec (inbox/home-brain-backpropagation-spec.md) — 8-part change spec for applying WAH improvements back to ancestor repo
+
 ## 2026-02-10 — Inbox Triage & Documentation
 
 - Processed meta/inbox item (dictated backlog ideas) → 4 new backlog items on roadmap: cross-repo inbox bridging, FTUX onboarding, task complexity tiers, inbox triage scoping

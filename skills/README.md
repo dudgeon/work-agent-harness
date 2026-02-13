@@ -71,7 +71,7 @@ Beyond the required `name` and `description`, the spec supports:
 | [entity-verification.md](entity-verification.md) | Resolve vague entities against existing files and web sources | Utility |
 | [template-propagation.md](template-propagation.md) | Update derived documents when templates change structurally | Maintenance |
 | [stakeholder-intelligence.md](stakeholder-intelligence.md) | Track stakeholder profiles, multi-person interactions, relationship proximity | Workflow |
-| [source-processing.md](source-processing.md) | Capture, read, and extract knowledge from sources for learning topics | Workflow |
+| [domain-source-synthesis.md](domain-source-synthesis.md) | Systematically build a knowledge base from sources within a domain | Pattern / Workflow |
 
 ---
 

@@ -15,10 +15,22 @@ Working through home-brain's `.claude/` files one at a time, adapting for corpor
 - [x] skills/inbox-triage.md — enhanced with unstructured input decomposition section
 - [x] skills/template-propagation.md — update docs when templates change
 - [x] skills/stakeholder-intelligence.md — proximity-based relationship tracking with guided onboarding
-- [x] skills/source-processing.md — generic source capture → knowledge pipeline with topic lifecycle
+- [x] skills/source-processing.md → **skills/domain-source-synthesis.md** — named the pattern; promoted taxonomy mechanism, featured marking, note sources, decomposition guidance from ai-pm-craft; added domain-level scoping and extension mechanism
 - [ ] rules/git-workflow.md — commit discipline, session reminders (scope TBD)
 - [ ] rules/mcp-optimization.md — writing for discoverability (relevance TBD)
 - [ ] newsworthy-events.md — likely skip
+
+## In Progress — Template Evolution & Bidirectional Sync
+
+Designing the system for WAH (template) and its instances (home-brain, future brains) to evolve together:
+
+- [x] Named domain-source-synthesis pattern — first pattern extracted from home-brain, generalized, ready for re-instantiation
+- [x] Backpropagation spec for home-brain — 8-part change spec in inbox/home-brain-backpropagation-spec.md
+- [x] Restored "Number all items" rule (accidentally dropped from home-brain during formalization)
+- [ ] Execute home-brain backpropagation spec — apply in a Claude Code session on home-brain repo
+- [ ] Validate domain-source-synthesis with a second domain (first work domain to use the pattern)
+- [ ] Refactor ai-pm-craft skill to wrap generic skill (after second domain validates)
+- [ ] Design template evolution system — lineage tracking, binding classification, adoption workflow (see session analysis for conceptual framework)
 
 ## Planned — Post-Port
 
