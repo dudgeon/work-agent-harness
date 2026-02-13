@@ -112,6 +112,16 @@ This creates an audit trail: what came in, what happened to it, where it went.
 
 ---
 
+## Source-Synthesis Domain Detection
+
+Some inbox items are destined for domains that use the [domain-source-synthesis](domain-source-synthesis.md) pattern. When triaging:
+
+1. **Check for domain tags** — if an item's frontmatter or content indicates a specific domain, check whether that domain has `pattern: domain-source-synthesis` in its README
+2. **Hand off to the pattern** — route the item to domain-source-synthesis for capture rather than filing it generically
+3. **Source vs non-source** — items with a source URL route to the capture workflow; items describing personal experience route to the organic idea workflow
+
+---
+
 ## Watch Out For
 
 **The "just in case" trap.** Keeping vague notes because "maybe someday" leads to bloat. Be willing to discard.
