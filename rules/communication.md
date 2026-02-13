@@ -56,7 +56,7 @@ How to communicate effectively in this system. Covers when to ask vs when to act
 
 ## After Completing Significant Changes
 
-Proactively offer to handle the logical next steps (commit, push, etc.). Frame it as a simple yes/no rather than waiting for the user to think of it.
+Proactively save snapshots and offer to sync — see [rules/git-workflow.md](git-workflow.md) for the full git caddy protocol. Frame next steps as a simple yes/no rather than waiting for the user to think of it.
 
 ---
 
