@@ -16,7 +16,7 @@ Working through home-brain's `.claude/` files one at a time, adapting for corpor
 - [x] skills/template-propagation.md — update docs when templates change
 - [x] skills/stakeholder-intelligence.md — proximity-based relationship tracking with guided onboarding
 - [x] skills/source-processing.md → **skills/domain-source-synthesis.md** — named the pattern; promoted taxonomy mechanism, featured marking, note sources, decomposition guidance from ai-pm-craft; added domain-level scoping and extension mechanism
-- [ ] rules/git-workflow.md — commit discipline, session reminders (scope TBD)
+- [x] rules/git-workflow.md — commit discipline and session boundaries folded into communication.md
 - [ ] rules/mcp-optimization.md — writing for discoverability (relevance TBD)
 - [ ] newsworthy-events.md — likely skip
 

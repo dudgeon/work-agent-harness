@@ -57,7 +57,22 @@ How to communicate effectively in this system. Covers when to ask vs when to act
 
 ## After Completing Significant Changes
 
-Proactively save snapshots and offer to sync — see [rules/git-workflow.md](git-workflow.md) for the full git caddy protocol. Frame next steps as a simple yes/no rather than waiting for the user to think of it.
+Proactively offer to handle the logical next steps (commit, push, etc.). Frame it as a simple yes/no rather than waiting for the user to think of it.
+
+---
+
+## Commit Discipline
+
+When committing work:
+
+- **Subject line**: 50-72 characters, imperative mood ("Add feature" not "Added feature") — should read like a changelog entry
+- **Body**: Explain the *why* when it isn't obvious from the diff — rationale, trade-offs, context
+- **Heredoc format**: Use heredoc for multi-line commit messages to avoid quoting issues across shells
+- **Commit promptly** after completing significant work — don't let uncommitted changes accumulate across unrelated tasks
+- **Batch related edits** into a single commit rather than one-per-file noise
+- **Never push without confirming** with the user — pushing is visible to others
+- **Never commit secrets**, credentials, or `.env` files — warn the user if asked to
+- **Never run destructive git commands** (force push, hard reset, clean) without explicit user approval
 
 ---
 
@@ -69,6 +84,22 @@ Check the inbox:
 3. If items exist, apply the inbox-triage skill ([skills/inbox-triage.md](../skills/inbox-triage.md))
 
 This keeps the inbox from silently accumulating. Treat it as a natural checkpoint between tasks.
+
+---
+
+## Session Boundaries
+
+**Session start:**
+1. Check which branch you're on — flag if unexpected
+2. Check for uncommitted work from a previous session — commit or flag it
+3. Fetch remote changes — pull if clean, flag conflicts plainly
+
+**Session end:**
+1. Verify all work is committed and pushed — no silent uncommitted changes left behind
+2. Remind the user of open items that need their attention — pending PRs, unfinished tasks, decisions awaiting input
+3. Proceed to retro if the session had meaningful friction (see below); otherwise, you're done
+
+This is housekeeping, not reflection. Keep it brief — a short checklist, not a summary essay.
 
 ---
 

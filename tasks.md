@@ -1,6 +1,6 @@
 ---
 created: 2026-02-09
-updated: 2026-02-12
+updated: 2026-02-13
 tags: [meta, tasks]
 status: active
 ---
@@ -19,7 +19,6 @@ Tasks may also appear in domain-specific files for local context, but this file 
 
 Remaining items from home-brain port (interactive triage — discuss before building):
 
-- [x] rules/git-workflow.md — standalone always-loaded rule, "git caddy" posture; communication.md updated to defer to it done:2026-02-12
 - [ ] rules/mcp-optimization.md — writing for discoverability; relevance TBD @agent
 - [ ] newsworthy-events.md — likely skip, too personal/family-specific @agent
 
@@ -59,9 +58,11 @@ Deliverables:
 - [ ] Determine metadata-based vs path-based filtering for shareable content
 - [ ] Consider competitive-analysis template (referenced in README but not yet created)
 - [ ] Test Windsurf skill auto-invocation with `.windsurf/skills/` files
+- [ ] Define bidirectional linking rule for cross-domain content (primary home + source links via relative paths; integration via triage) @agent
 
 ## Completed
 
 - [x] Initial bootstrap — AGENTS.md, CLAUDE.md, rules/, skills/, templates/, scaffolding done:2026-02-09
 - [x] Skills & rules port (8/11) — README, decision-system, task-system, entity-verification, inbox-triage, template-propagation, stakeholder-intelligence, source-processing done:2026-02-09
 - [x] Processed meta/inbox item — 4 backlog items added to roadmap done:2026-02-10
+- [x] rules/git-workflow.md — commit discipline and session boundaries folded into communication.md done:2026-02-13
