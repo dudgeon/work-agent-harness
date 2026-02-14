@@ -73,6 +73,7 @@ When committing work:
 - **Never push without confirming** with the user — pushing is visible to others
 - **Never commit secrets**, credentials, or `.env` files — warn the user if asked to
 - **Never run destructive git commands** (force push, hard reset, clean) without explicit user approval
+- **When branches diverge with overlapping content**, break the resolution down item-by-item — present each conflicting file with numbered options so the user can direct the merge surgically
 
 ---
 
@@ -108,7 +109,7 @@ This is housekeeping, not reflection. Keep it brief — a short checklist, not a
 After any session where you hit meaningful friction — a wrong approach, a tool you didn't think to use, a pattern that wasted time, or a correction from the user — proactively retro before closing out:
 
 1. **Surface findings**: Briefly describe what went wrong and what you learned. Don't bury it.
-2. **Propose instruction updates**: Identify which files should change and what the update would be. Be specific — "I should update X to say Y" not "we should improve things."
+2. **Propose instruction updates**: For each finding, state the proposed edit and target file — or explicitly state why no edit is needed. Don't batch findings into a single "no changes needed" conclusion. Be specific — "I should update X to say Y" not "we should improve things."
 3. **Ask permission**: Don't silently update instructions. Present your proposed changes and let the user approve, refine, or reject them.
 
 The goal is continuous improvement of the system, not just the current task. Treat your own instructions as a product — retro on them the way you'd retro on a shipped feature.
