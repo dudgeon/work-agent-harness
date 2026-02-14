@@ -29,6 +29,16 @@ Tracks significant changes to the harness framework itself (not domain content).
 - Created skills/stakeholder-intelligence.md — proximity-based relationship tracking, guided new-person onboarding, multi-person interaction updates
 - Created skills/source-processing.md — generic source capture → knowledge pipeline with topic lifecycle, frontmatter-based topic discovery, initialization workflow
 
+## 2026-02-13 — Git Workflow Triage & Retro Process Improvement
+
+- Folded git-workflow guidance into communication.md (no standalone rule): Commit Discipline section (message format, timing, safety), Session Boundaries section (start/end checklists), surgical merge resolution guidance
+- Removed standalone rules/git-workflow.md and .windsurf/rules/git-workflow.md mirror
+- Updated AGENTS.md and CLAUDE.md to remove git-workflow.md from always-loaded list
+- Strengthened retro process: step 2 now requires per-finding evaluation instead of allowing batch "no changes needed" conclusions
+- Restored meta/research/cross-repo-agent-analysis.md from divergent local branch
+- Added bidirectional linking rule to backlog
+- Resolved 1-vs-6 commit divergence with remote using surgical per-file merge strategy
+
 ## 2026-02-13 — Domain Source Synthesis Pattern & Template Evolution
 
 - **Named the domain-source-synthesis pattern** — canonical name for the reusable "capture sources → extract atomic knowledge → build knowledge base" architecture that originated in home-brain's ai-pm-craft domain
