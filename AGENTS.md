@@ -13,6 +13,7 @@ These define how to think and act — load every session:
 - [rules/philosophy.md](rules/philosophy.md) — Core principles: second brain, not notepad
 - [rules/communication.md](rules/communication.md) — Style, ask-vs-do heuristic, commit discipline, session boundaries, retros
 - [rules/context-management.md](rules/context-management.md) — Fact retention, detect-route-update pattern
+- [rules/agent-control-mirror-sync.md](rules/agent-control-mirror-sync.md) — Mirror map and sync expectations for instruction files
 
 ## Session Start Protocol
 
@@ -130,13 +131,9 @@ See [rules/communication.md](rules/communication.md) for when to retro and when 
 
 ## Cross-Agent Sync Rules
 
-`AGENTS.md` is the universal source of truth. Agent-specific files are wrappers:
-- `CLAUDE.md` → references AGENTS.md
-- `.windsurf/rules/` → references universal `rules/` files
-- `.windsurf/skills/` → references universal `skills/` files
-- `.claude/skills/` → references universal `skills/` files
+Full mirror map, thin pointer pattern, and sync expectations live in [rules/agent-control-mirror-sync.md](rules/agent-control-mirror-sync.md) (always loaded).
 
-**Sync rule**: When any agent modifies a skill or rule, it must update both the universal version and all agent-specific analogs, or flag the desync for the user to resolve.
+For verification after changes, use the companion skill: [skills/agent-control-mirror-sync.md](skills/agent-control-mirror-sync.md).
 
 ## On-Demand Reference
 

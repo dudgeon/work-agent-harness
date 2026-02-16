@@ -10,6 +10,7 @@ Load these every session:
 - @rules/philosophy.md
 - @rules/communication.md
 - @rules/context-management.md
+- @rules/agent-control-mirror-sync.md
 
 ## Session Start
 
@@ -23,4 +24,4 @@ Claude-specific skill mirrors live in `.claude/skills/`. These reference the uni
 
 ## Sync Responsibility
 
-If you modify any rule or skill, update both the universal version (`rules/`, `skills/`) and all agent-specific analogs (`.windsurf/rules/`, `.windsurf/skills/`, `.claude/skills/`). If you cannot update all mirrors, flag the desync for the user.
+See [rules/agent-control-mirror-sync.md](rules/agent-control-mirror-sync.md) (always loaded) for the full mirror map and sync expectations.

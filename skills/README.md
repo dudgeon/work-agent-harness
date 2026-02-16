@@ -72,6 +72,8 @@ Beyond the required `name` and `description`, the spec supports:
 | [template-propagation.md](template-propagation.md) | Update derived documents when templates change structurally | Maintenance |
 | [stakeholder-intelligence.md](stakeholder-intelligence.md) | Track stakeholder profiles, multi-person interactions, relationship proximity | Workflow |
 | [domain-source-synthesis.md](domain-source-synthesis.md) | Systematically build a knowledge base from sources within a domain | Pattern / Workflow |
+| [changelog-rollup.md](changelog-rollup.md) | Aggregate timeline entries into reports for reviews, updates, and retrospectives | Workflow |
+| [agent-control-mirror-sync.md](agent-control-mirror-sync.md) | Verify and repair sync state across all agent mirror files | Maintenance |
 
 ---
 
