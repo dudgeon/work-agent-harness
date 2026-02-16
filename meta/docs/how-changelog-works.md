@@ -37,12 +37,19 @@ You don't need to do anything special. The agent watches for signals during norm
 | Scope changes deliberately | `[scope-change]` | "Let's drop feature Y and focus on Z" |
 
 When the agent detects a signal, it:
-1. Drafts a 1-line summary
-2. Asks you briefly: "This looks like a milestone for [project]. Should I add it to the timeline?"
-3. On yes, appends the entry to the project or domain file's Timeline section
-4. On no, moves on
+1. Drafts a 1-line summary and infers the entry type
+2. Presents lettered scoping options so you control where it lands:
 
-At session end, if notable work happened but nothing was captured, the agent prompts once as a safety net.
+   > This looks like a milestone. Where should I capture it?
+   > a) platform-migration.md timeline (Recommended)
+   > b) Strategy domain README timeline
+   > c) Both a and b
+   > d) Skip — not worth capturing
+
+3. On selection, appends the entry to the chosen Timeline section(s)
+4. On skip, moves on
+
+At session end, if notable work happened but nothing was captured, the agent prompts once with the same scoping options.
 
 ### What doesn't get captured
 

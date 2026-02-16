@@ -43,9 +43,23 @@ Detect changelog-worthy moments using these indicators:
 1. **Check for duplicates** — scan the project's recent timeline entries. If a similar event is already captured (same date, overlapping summary), don't prompt again.
 2. **Draft a 1-line summary** — e.g., "Shipped v1.0 prototype to internal stakeholders"
 3. **Infer the entry type** from context — the user never picks a category
-4. **Ask briefly** — "This looks like a milestone for [project]. Should I add it to the timeline?"
-5. **On yes**: Append to the appropriate Timeline section using the entry format below
-6. **On no**: Move on without persisting
+4. **Confirm scope with lettered options** — present candidate targets so the user controls where it lands:
+
+   > This looks like a milestone. Where should I capture it?
+   > a) platform-migration.md timeline (Recommended)
+   > b) Strategy domain README timeline
+   > c) Both a and b
+   > d) Skip — not worth capturing
+
+   **How to build the option list:**
+   - Identify the project file most closely associated with the work (recommend this one)
+   - If the event has domain-wide significance, include the domain README as an option
+   - If the work spans multiple projects, list each candidate project file
+   - Always include a "Skip" option last
+   - If there's only one obvious target, still present options (the target + skip) — don't assume
+
+5. **On selection**: Append to the chosen Timeline section(s) using the entry format below
+6. **On skip**: Move on without persisting
 
 ### Entry format
 
@@ -79,9 +93,12 @@ When uncertain, default to project-level.
 
 ## Session End: Safety Net Prompt
 
-If significant work was done on a project during the session but no timeline entry was captured, prompt once:
+If significant work was done on a project during the session but no timeline entry was captured, prompt once with the same lettered-option pattern:
 
-> "We made progress on [project] this session — [brief summary]. Worth adding to the timeline?"
+> We made progress on [project] this session — [brief summary]. Where should I capture it?
+> a) [project-file.md] timeline (Recommended)
+> b) [Domain] README timeline
+> c) Skip
 
 **When to prompt:**
 - Work touched project files, completed tasks, or advanced project goals
