@@ -94,11 +94,13 @@ This keeps the inbox from silently accumulating. Treat it as a natural checkpoin
 1. Check which branch you're on — flag if unexpected
 2. Check for uncommitted work from a previous session — commit or flag it
 3. Fetch remote changes — pull if clean, flag conflicts plainly
+4. Read project context for active work (per [changelog-awareness.md](changelog-awareness.md)) — goals, blockers, recent timeline
 
 **Session end:**
 1. Verify all work is committed and pushed — no silent uncommitted changes left behind
-2. Remind the user of open items that need their attention — pending PRs, unfinished tasks, decisions awaiting input
-3. Proceed to retro if the session had meaningful friction (see below); otherwise, you're done
+2. Apply changelog safety net prompt if warranted (per [changelog-awareness.md](changelog-awareness.md))
+3. Remind the user of open items that need their attention — pending PRs, unfinished tasks, decisions awaiting input
+4. Proceed to retro if the session had meaningful friction (see below); otherwise, you're done
 
 This is housekeeping, not reflection. Keep it brief — a short checklist, not a summary essay.
 

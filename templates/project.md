@@ -1,8 +1,9 @@
 ---
 type: template
-version: 1
+version: 2
 description: Template for tracking projects within a domain. Projects have defined goals, timelines, and completion states.
 changelog: |
+  v2 (2026-02-15): Enriched Timeline section with type tags, entry format guidance, and agent instructions
   v1 (2026-02-09): Initial template
 ---
 
@@ -66,6 +67,19 @@ What's explicitly out of scope:
 
 ## Timeline
 
-### YYYY-MM-DD — Created
+<!-- Timeline entries are added by the agent during work sessions.
+     Each entry captures a notable event: milestone, decision, progress, win, learning, blocker resolved, or scope change.
+     The agent infers the type based on context — you don't need to categorize manually.
+
+     Format:
+     ### YYYY-MM-DD — Summary phrase [type]
+     - Detail bullets (1-3, enough context for future retrieval)
+     - Links: [artifact](path/or/url) (optional but encouraged)
+     - Impact: Why this matters (optional, useful for review prep)
+
+     Types: [milestone], [progress], [decision], [win], [learning], [blocker-resolved], [scope-change]
+-->
+
+### YYYY-MM-DD — Project created [milestone]
 
 Initial project context — what prompted this and what the starting conditions are.

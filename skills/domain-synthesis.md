@@ -64,7 +64,24 @@ Report to the user:
 - **Structural suggestions**: Sub-domains that should be created, split, or merged
 - **Content gaps**: Topics the domain should cover but doesn't yet
 
-### 5. Suggest Reorganization (If Warranted)
+### 5. Review Timeline Health
+
+Check the domain README's Timeline section and project-level Timeline sections within the domain.
+
+**Flag:**
+- **Stale timelines**: Active projects (`status: active`) with no timeline entries in the last 30 days
+- **Timeline gaps**: Evidence of significant work (file changes, completed tasks) but no corresponding timeline entries
+- **Under-documented entries**: Timeline entries with vague summaries, missing links, or no context bullets
+- **Missing timelines**: Domain READMEs or project files with empty or absent Timeline sections
+
+**Don't:**
+- Generate timeline entries yourself — that's the [changelog awareness rule's](../rules/changelog-awareness.md) job
+- Flag old/completed projects for stale timelines — those are naturally quiet
+- Expect timeline entries for routine maintenance (file reorganization, metadata fixes)
+
+This is a health check, not timeline generation. Report what you observe and suggest the user capture missing entries if they remember the context.
+
+### 6. Suggest Reorganization (If Warranted)
 
 Only suggest structural changes when there's clear benefit:
 - A subfolder has grown enough to become its own sub-domain
@@ -92,6 +109,7 @@ After synthesis, present findings as:
 
 ### Issues Found
 - [ ] [Stale/orphaned/missing metadata items]
+- [ ] [Timeline health issues]
 
 ### Recommended Actions
 - [ ] [Specific actionable items]

@@ -32,6 +32,20 @@ Designing the system for WAH (template) and its instances (home-brain, future br
 - [ ] Refactor ai-pm-craft skill to wrap generic skill (after second domain validates)
 - [ ] Design template evolution system — lineage tracking, binding classification, adoption workflow (see session analysis for conceptual framework)
 
+## Completed — Work Changelog
+
+Implemented from [meta/specs/work-changelog.md](specs/work-changelog.md):
+
+- [x] Template scaffolding — project.md v2 (enriched Timeline), domain.md v2 (added Timeline section)
+- [x] Changelog awareness rule — always-on detection of milestones, decisions, wins, etc. with session start/end hooks
+- [x] Rule hooks — task-system, decision-system, communication rules updated with changelog integration points
+- [x] Domain-synthesis update — timeline health review step added
+- [x] Changelog rollup skill — aggregation into reports (annual review, stakeholder update, retrospective, self-reflection)
+- [x] Cross-agent mirrors — .claude/skills/, .windsurf/skills/, .windsurf/rules/
+- [x] Explainer doc — meta/docs/how-changelog-works.md (platform-specific instructions, scoping guide)
+
+Deferred: retroactive population from git history, proactive periodic reports, entry density calibration.
+
 ## Planned — Post-Port
 
 - [ ] Decision templates (decision.md, decision-quick.md)

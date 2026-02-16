@@ -96,6 +96,11 @@ A decision is worth documenting if it meets **2 or more** of these criteria:
    - Include enough context for future review
    - Document comprehensively, but only after the conversation settles
 
+5. **Offer timeline entry:**
+   - After documenting the decision, offer to add a timeline entry linking to the decision record
+   - Decisions that shape project direction are always changelog-worthy (per [changelog-awareness.md](changelog-awareness.md))
+   - Brief prompt: "Should I add this decision to [project]'s timeline?"
+
 ---
 
 ## Decision Document Structure

@@ -70,6 +70,7 @@ Examples:
 - Mark complete when done: `[x]` with `done:` date
 
 **After completing a task:**
+- Assess if the completion is changelog-worthy (per [changelog-awareness.md](changelog-awareness.md)) — use the project's goals and blockers as context for significance
 - Check inbox (per [rules/communication.md](communication.md))
 - Sync any domain-file mirrors (see below)
 

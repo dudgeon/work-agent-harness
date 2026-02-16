@@ -1,6 +1,6 @@
 ---
 created: 2026-02-09
-updated: 2026-02-13
+updated: 2026-02-15
 tags: [meta, tasks]
 status: active
 ---
@@ -52,6 +52,12 @@ Deliverables:
 - [ ] `context/team-repos.md` pattern — lightweight index of team repos the worker interacts with @agent
 - [ ] Update AGENTS.md to document team repo integration model @agent
 
+### Work Changelog — Deferred
+
+- [ ] Retroactive timeline population — offer to backfill entries from git history for existing projects (draft for user review, don't auto-commit) @agent
+- [ ] Proactive periodic reports — agent offers weekly/monthly writeups on a cadence ("It's Friday — want a weekly writeup?"); start on-demand, graduate to proactive if pattern proves useful @agent
+- [ ] Entry density calibration — tune capture aggressiveness based on user feedback; currently defaults to "when in doubt, don't prompt" @user
+
 ### Other Backlog
 
 - [ ] Evaluate publishing/syncing pipeline options (GitHub Actions vs manual review)
@@ -66,3 +72,4 @@ Deliverables:
 - [x] Skills & rules port (8/11) — README, decision-system, task-system, entity-verification, inbox-triage, template-propagation, stakeholder-intelligence, source-processing done:2026-02-09
 - [x] Processed meta/inbox item — 4 backlog items added to roadmap done:2026-02-10
 - [x] rules/git-workflow.md — commit discipline and session boundaries folded into communication.md done:2026-02-13
+- [x] Work changelog — implemented changelog awareness rule, rollup skill, template scaffolding, and rule hooks done:2026-02-15

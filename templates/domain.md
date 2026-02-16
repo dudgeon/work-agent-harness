@@ -1,8 +1,9 @@
 ---
 type: template
-version: 1
+version: 2
 description: Template for domain README.md files. Every domain (and sub-domain) should have a README following this structure.
 changelog: |
+  v2 (2026-02-15): Added Timeline section for domain-level events
   v1 (2026-02-09): Initial template
 ---
 
@@ -41,6 +42,21 @@ Unresolved topics, areas needing exploration, decisions pending.
 
 - [Related domain](../related-domain/) — how they connect
 - [Context file](../../context/relevant-context.md) — cross-domain context
+
+---
+
+## Timeline
+
+<!-- Domain-level events that matter across the domain, not specific to any one project.
+     Project-specific events go in project files.
+
+     Format:
+     ### YYYY-MM-DD — Summary phrase [type]
+     - Detail bullets
+     - Links: [related files or contexts](path)
+
+     Types: [milestone], [progress], [decision], [win], [learning], [blocker-resolved], [scope-change]
+-->
 
 ---
 
