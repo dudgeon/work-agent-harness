@@ -1,6 +1,6 @@
 ---
 created: 2026-02-09
-updated: 2026-02-15
+updated: 2026-02-16
 tags: [meta, tasks]
 status: active
 ---
@@ -73,3 +73,4 @@ Deliverables:
 - [x] Processed meta/inbox item — 4 backlog items added to roadmap done:2026-02-10
 - [x] rules/git-workflow.md — commit discipline and session boundaries folded into communication.md done:2026-02-13
 - [x] Work changelog — implemented changelog awareness rule, rollup skill, template scaffolding, and rule hooks done:2026-02-15
+- [x] Inbox triage enhancements — CriticMarkup enrichment pass, hub-and-spoke entity timelines, domain emergence and corpus backfill done:2026-02-16

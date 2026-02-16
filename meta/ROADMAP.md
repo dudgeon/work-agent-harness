@@ -32,6 +32,16 @@ Designing the system for WAH (template) and its instances (home-brain, future br
 - [ ] Refactor ai-pm-craft skill to wrap generic skill (after second domain validates)
 - [ ] Design template evolution system — lineage tracking, binding classification, adoption workflow (see session analysis for conceptual framework)
 
+## Completed — Inbox Triage Enhancements
+
+Enriched the inbox-triage skill with three new capabilities driven by the meeting-notes use case:
+
+- [x] CriticMarkup enrichment pass — agent annotates raw notes with answers from existing WAH content before archiving (`{>>YYYY-MM-DD @agent: ...<<}`)
+- [x] Hub-and-spoke entity timeline updates — meeting note as authoritative hub; person and project entities get lightweight timeline entries pointing back
+- [x] Domain emergence and corpus backfill — detect when triage reveals a missing domain; propose creation; run bounded backfill scan for existing connections
+
+Design decision: a dedicated meeting-processing skill was considered and deferred. The generic unstructured input flow in inbox-triage covers meeting notes for now. If meeting-specific parsing (attendees, agenda structure) proves valuable, it can be extracted later.
+
 ## Completed — Work Changelog
 
 Implemented from [meta/specs/work-changelog.md](specs/work-changelog.md):
@@ -68,5 +78,6 @@ Deferred: retroactive population from git history, proactive periodic reports, e
 - [ ] Cross-repo inbox bridging — give agents in this repo visibility into home-brain/inbox (e.g., add folder to VSC project scope); detect items relevant to this project; mark routing intentionally (process here, there, or both); replicate pattern for other active project repos
 - [ ] FTUX onboarding experience — agent instructions + task list + infra for first-time users of a new harness instance; syllabus of core primitives/concepts to explore; questions agent should ask a new user; checklist tracking when each component has been demonstrated with references to where/how
 - [ ] Task complexity tiers — extend tasks.md to support medium-complexity tasks (bigger than a todo, smaller than a multi-month project); think through what additional structure medium tasks need (associated files, subtasks, progress tracking) without over-engineering into full project management
-- [ ] Inbox triage scoping — triage should detect when items carry implicit scope the agent doesn't know and proactively ask for context; support pre-registering recurring item patterns (e.g., "monthly leadership update" = parent org summary, covers X teams, user cares about Y) so the agent learns the pattern once
-- [ ] Bidirectional linking rule — define cross-domain linking conventions (primary home + source links via relative paths; integration via triage)
+- [ ] Inbox triage scoping — pre-register recurring item patterns (e.g., "weekly 1:1 with Jared" = covers projects X/Y/Z, "monthly leadership update" = parent org summary, covers X teams). Domain emergence detection now handles the "implicit scope" part; this item is narrowed to pattern recognition for recurring inputs.
+- [ ] Bidirectional linking rule — define cross-domain linking conventions (primary home + source links via relative paths; integration via triage). Note: hub-and-spoke pattern in inbox-triage establishes the first concrete convention (meeting note as hub, entities as spokes). General rule should build on this.
+- [ ] Meeting-processing skill — dedicated skill for structured meeting parsing (attendees, agenda, multi-project decomposition). Deferred: generic unstructured input flow covers this for now. Extract if meeting-specific structure proves valuable after real usage.

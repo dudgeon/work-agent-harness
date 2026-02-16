@@ -29,6 +29,16 @@ Tracks significant changes to the harness framework itself (not domain content).
 - Created skills/stakeholder-intelligence.md — proximity-based relationship tracking, guided new-person onboarding, multi-person interaction updates
 - Created skills/source-processing.md — generic source capture → knowledge pipeline with topic lifecycle, frontmatter-based topic discovery, initialization workflow
 
+## 2026-02-16 — Inbox Triage Enhancements: Enrichment, Hub-and-Spoke, Domain Emergence
+
+- **CriticMarkup enrichment pass** — new triage step: before archiving, agent scans raw notes for questions/gaps answerable from existing WAH content and annotates inline using `{>>YYYY-MM-DD @agent: ...<<}` syntax. Boundary: only from WAH content, never web or speculation.
+- **Hub-and-spoke entity timeline updates** — meeting note is the authoritative hub in `inbox/_archive/`; person and project entity files get lightweight reverse-chronological timeline entries pointing back to it. Cross-links between spokes only for durable relationships, not per-meeting.
+- **Domain emergence and corpus backfill** — triage now detects when routing reveals a missing domain (clustering signal). Flow: propose domain → create with approval → bounded backfill scan of existing notes for connections → execute approved changes.
+- Updated processing workflow from 9 to 12 steps integrating all three capabilities
+- Updated skills/README.md table description
+- Design decision: dedicated meeting-processing skill deferred — generic unstructured input flow covers meeting notes for now
+- Refined backlog: narrowed "inbox triage scoping" to recurring pattern recognition (domain emergence handles implicit scope); cross-referenced hub-and-spoke with bidirectional linking rule; added deferred meeting-processing skill
+
 ## 2026-02-13 — Git Workflow Triage & Retro Process Improvement
 
 - Folded git-workflow guidance into communication.md (no standalone rule): Commit Discipline section (message format, timing, safety), Session Boundaries section (start/end checklists), surgical merge resolution guidance
