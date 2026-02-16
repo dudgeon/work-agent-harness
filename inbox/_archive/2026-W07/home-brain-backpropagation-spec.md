@@ -3,7 +3,12 @@ created: 2026-02-13
 tags: [meta, home-brain, backpropagation, domain-source-synthesis]
 status: active
 context: Change spec for backpropagating WAH improvements to home-brain. Execute in a Claude Code session with home-brain repo access.
+triage_status: filed
+triage_date: 2026-02-13
+triage_action: "Marked WIP. Execution happens in home-brain repo, not here."
 ---
+
+> **WIP**: This spec is executed in the **home-brain** repo, not this one. Open a Claude Code session on `dudgeon/home-brain` and use this file as the instruction set. Part 8's WAH note ("Number all items") is already done — restored to `rules/communication.md` during merge resolution on 2026-02-13.
 
 # Home-Brain Backpropagation: Domain Source Synthesis & Structural Upgrades
 
