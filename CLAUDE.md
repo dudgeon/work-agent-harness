@@ -11,6 +11,7 @@ Load these every session:
 - @rules/communication.md
 - @rules/context-management.md
 - @rules/agent-control-mirror-sync.md
+- @rules/changelog-awareness.md
 
 ## Session Start
 

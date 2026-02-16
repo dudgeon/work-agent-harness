@@ -304,11 +304,23 @@ This keeps domain-specific judgment co-located with the domain rather than encod
 
 ---
 
+## Timeline Review
+
+When processing sources or reviewing a domain's health, also check the domain README's `## Timeline` section and any project-level Timeline sections within the domain. Flag:
+
+- **Stale timelines**: Active projects with no recent entries — suggests changelog awareness hasn't been triggering
+- **Gaps**: Significant work evident from source processing or file changes, but no corresponding timeline entries
+- **Entries needing enrichment**: Missing links, vague summaries, or entries that could benefit from impact statements
+
+This is a light touch — surface the health of the timeline, don't generate entries. Entry creation is the [changelog awareness rule's](../rules/changelog-awareness.md) responsibility.
+
+---
+
 ## Interaction with Other Skills
 
 - **[Inbox triage](inbox-triage.md)** routes items tagged for a source-synthesis domain to this skill
 - **[Entity verification](entity-verification.md)** resolves vague source references (author names, publication titles)
-- **[Domain synthesis](domain-synthesis.md)** can review a source-synthesis domain's knowledge base for periodic health checks
+- **[Changelog awareness](../rules/changelog-awareness.md)** captures timeline entries during work; this skill reviews timeline health during domain reviews
 
 ---
 

@@ -14,6 +14,7 @@ These define how to think and act — load every session:
 - [rules/communication.md](rules/communication.md) — Style, ask-vs-do heuristic, commit discipline, session boundaries, retros
 - [rules/context-management.md](rules/context-management.md) — Fact retention, detect-route-update pattern
 - [rules/agent-control-mirror-sync.md](rules/agent-control-mirror-sync.md) — Mirror map and sync expectations for instruction files
+- [rules/changelog-awareness.md](rules/changelog-awareness.md) — Detect and capture milestones, decisions, wins to project/domain timelines
 
 ## Session Start Protocol
 

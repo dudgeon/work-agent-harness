@@ -1,13 +1,16 @@
 ---
 created: 2026-02-15
-updated: 2026-02-15
-status: draft
+updated: 2026-02-16
+status: implemented
+implemented_date: 2026-02-16
 origin: inbox items 2026-02-14T12-32-33, 2026-02-14T12-38-03 (home-brain inbox)
 applies_to: [home-brain, work-agent-harness]
 tags: [spec, changelog, domain-lifecycle, skills, rules]
 ---
 
-# Spec: Work Changelog
+# Spec: Work Changelog (Implemented)
+
+> **Status: Fully implemented for work-agent-harness as of 2026-02-16.** See implementation notes below for what shipped where. Home-brain implementation is tracked separately.
 
 A behavioral specification for capturing, storing, and reporting on work activity across domains and projects. The changelog tracks **the work itself** — milestones, decisions, wins, progress — not changes to the knowledge system's structure.
 
@@ -331,13 +334,24 @@ Add a Timeline section as the last major section:
 4. **Rule additions**: The changelog awareness behavior integrates into existing session protocol and communication rules
 5. **Existing progress logs**: For projects with existing Progress Log entries, migrate content to Timeline format during next touch (not a bulk migration — opportunistic)
 
-### For work-agent-harness
+### For work-agent-harness — IMPLEMENTED 2026-02-16
 
-1. **Template updates**: Update `templates/project.md` Timeline section with structured format; update `templates/domain.md` to include Timeline section
-2. **Skill updates**: Update `skills/domain-synthesis.md` with timeline review step; create `skills/changelog-rollup.md` for reporting
-3. **Rule updates**: Update `rules/task-system.md` with changelog hook; update `rules/decision-system.md` with changelog hook; add changelog awareness to `rules/communication.md` session protocol
-4. **Cross-agent sync**: All rule/skill changes must propagate to `.windsurf/` and `.claude/` mirrors per existing sync rules
-5. **New domains**: Domains created from `templates/domain.md` will have Timeline scaffolding from birth
+All items shipped:
+
+| Spec Item | Shipped To | Notes |
+|-----------|-----------|-------|
+| Template: project.md Timeline section | `templates/project.md` (v2) | Replaces Progress Log with structured Timeline |
+| Template: domain.md Timeline section | `templates/domain.md` (v2) | Domain-level timeline scaffolding |
+| Skill: changelog rollup | `skills/changelog-rollup.md` | Full reporting skill with scoping, synthesis, output |
+| Skill: domain-source-synthesis timeline review | `skills/domain-source-synthesis.md` | Timeline health check during domain reviews |
+| Rule: changelog awareness | `rules/changelog-awareness.md` | Always-loaded; session start/during/end behavior |
+| Rule hook: task-system.md | `rules/task-system.md` | Changelog assessment after task completion |
+| Rule hook: decision-system.md | `rules/decision-system.md` | Timeline entry offer after decisions |
+| Rule hook: communication.md | `rules/communication.md` | Session protocol references changelog-awareness |
+| Always-loaded registration | `AGENTS.md`, `CLAUDE.md` | changelog-awareness in always-loaded lists |
+| Mirror: .claude/skills/changelog-rollup | `.claude/skills/changelog-rollup.md` | Thin pointer |
+| Mirror: .windsurf/skills/changelog-rollup | `.windsurf/skills/changelog-rollup.md` | Thin pointer |
+| Mirror: .windsurf/rules/changelog-awareness | `.windsurf/rules/changelog-awareness.md` | Thin pointer |
 
 ### Rollout approach
 
