@@ -66,7 +66,7 @@ Beyond the required `name` and `description`, the spec supports:
 
 | Skill | Purpose | Type |
 |-------|---------|------|
-| [inbox-triage.md](inbox-triage.md) | Route inbox items to appropriate domains, decompose unstructured input | Workflow |
+| [inbox-triage.md](inbox-triage.md) | Route inbox items to domains, enrich with CriticMarkup, update entity timelines, detect domain emergence | Workflow |
 | [domain-synthesis.md](domain-synthesis.md) | Synthesize information across a domain, update READMEs, flag gaps | Workflow |
 | [entity-verification.md](entity-verification.md) | Resolve vague entities against existing files and web sources | Utility |
 | [template-propagation.md](template-propagation.md) | Update derived documents when templates change structurally | Maintenance |
