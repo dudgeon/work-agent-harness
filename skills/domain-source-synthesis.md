@@ -163,6 +163,14 @@ This is the judgment-heavy step. Read the domain's **Source Synthesis Scope** be
 
 1. **Read the source thoroughly** — understand the full argument, not just highlights
 2. **Read the domain's taxonomy** (if one exists) for classification guidance
+2.5. **Evaluate taxonomy fit** (if a taxonomy exists): After reading the source, ask whether the current taxonomy will enhance or detract from understanding the material. The taxonomy should make ideas more discoverable and more meaningful — not just filed.
+
+   Two failure modes:
+   - **Splitting what belongs together**: Does the taxonomy force separating concepts the source treats as one argument? If the core insight is a *relationship* between two things, splitting them across categories loses the insight. Place entries where the relationship is visible; use cross-references.
+   - **Merging what's meaningfully distinct**: Does the taxonomy lump together concepts with different audiences, applications, or implications? When a source reveals a distinction the taxonomy doesn't make, the taxonomy needs to grow.
+
+   When you identify a gap: name the problem (what understanding is lost), propose the enhancement with rationale, and implement it (update taxonomy, create structure) *before* filing entries. Don't force-fit ideas into the closest existing category — the taxonomy serves understanding, not the other way around.
+
 3. **Identify discrete ideas**: Each source typically contains multiple ideas:
    - A named technique or method
    - A framework for thinking about problems
@@ -247,8 +255,8 @@ When a domain has a taxonomy (`meta/taxonomy.md`):
 
 1. **Always read the taxonomy before processing sources** — it defines the classification language
 2. **Place entries in the most specific applicable category** — use the taxonomy's structure as the organizational guide for `knowledge-base/` subdirectories
-3. **Flag entries that don't fit** — if an idea doesn't map to the taxonomy, that's a signal the taxonomy may need updating
-4. **Taxonomy evolves** — as the knowledge base grows, the taxonomy may need new categories or restructuring. Propose changes, don't silently reorganize.
+3. **Evaluate fit during processing** — if ideas don't map cleanly, use step 2.5 in the processing workflow above to assess whether the taxonomy should evolve. Don't silently force-fit; don't silently reorganize. Propose changes with rationale, implement with user approval.
+4. **Taxonomy evolves with the knowledge base** — new sources frequently reveal distinctions the taxonomy doesn't yet make, or show that existing categories split concepts best understood together. This is expected and healthy. Treat taxonomy enhancement as a natural part of source processing, not a separate maintenance task.
 
 When a domain doesn't have a taxonomy:
 
