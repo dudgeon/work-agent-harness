@@ -37,7 +37,7 @@ Items are processed using the [inbox-triage skill](../skills/inbox-triage.md). P
 
 ### Archiving
 
-Processed items move to `_archive/YYYY-Www/` (ISO week format) with triage annotations preserved. This creates an audit trail without cluttering the active inbox.
+Processed items archive **in the destination domain's `_archive/YYYY-Www/`** (ISO week format) with triage annotations preserved. This keeps source materials near the knowledge they produced and supports domain-local audit trails. Discarded items are simply deleted — no archive for things not worth keeping.
 
 ---
 

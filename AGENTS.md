@@ -71,7 +71,7 @@ Quick summary (full detail in [skills/inbox-triage.md](skills/inbox-triage.md)):
 2. Detect new entities (people, projects, organizations, topics)
 3. Check for existing notes to merge into
 4. Route to appropriate domain with proper metadata
-5. Archive processed items to `inbox/_archive/YYYY-Www/`
+5. Archive processed items to destination domain's `_archive/YYYY-Www/`
 
 After completing any significant task, check `inbox/` for accumulated items.
 

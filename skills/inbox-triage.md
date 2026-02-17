@@ -179,7 +179,7 @@ Only annotate from **existing WAH content** — domain files, context files, dec
 
 When a note references people or projects, update their entity files using a **hub-and-spoke** pattern:
 
-- **Hub**: The archived meeting note in `inbox/_archive/` — this is the authoritative record
+- **Hub**: The archived meeting note in the destination domain's `_archive/` — this is the authoritative record
 - **Spokes**: Person entities and project notes each get a lightweight timeline entry pointing back to the hub
 
 ### Person Entity Updates
@@ -192,7 +192,7 @@ For each person mentioned, add a reverse-chronological timeline entry:
 One to three sentence summary of what was discussed relevant to this person.
 Not a transcript — a useful index entry.
 
-Source: [meeting note](relative/path/to/inbox/_archive/YYYY-Www/note.md)
+Source: [meeting note](relative/path/to/domain/_archive/YYYY-Www/note.md)
 ```
 
 ### Project Updates
@@ -204,7 +204,7 @@ For each project discussed, add a similar timeline entry:
 
 One-liner on what was discussed or decided. Detail lives in the meeting note.
 
-Source: [meeting note](relative/path/to/inbox/_archive/YYYY-Www/note.md)
+Source: [meeting note](relative/path/to/domain/_archive/YYYY-Www/note.md)
 ```
 
 ### Cross-Links Between Spokes
@@ -252,13 +252,26 @@ When processing inbox (whether prompted or as post-task check):
 9. Move to appropriate domain folder (or merge into existing note)
 10. **Check for domain emergence**: if routing reveals clustering, propose new domain + backfill (see above)
 11. Annotate the original with triage metadata
-12. Archive processed item to `inbox/_archive/YYYY-Www/`
+12. Archive processed item to destination domain's `_archive/YYYY-Www/`
 
 ---
 
 ## Archiving
 
-Processed inbox items move to `inbox/_archive/YYYY-Www/` (ISO week format). The original note is preserved with triage annotations added, creating a record of what was processed and where it went.
+Processed inbox items archive **in the destination domain**, not in a monolithic `inbox/_archive/`. This keeps source materials near the knowledge they produced.
+
+### Where the archive goes
+
+- **Filed or merged items** → `domains/<target-domain>/_archive/YYYY-Www/` — the original note is preserved with triage annotations added
+- **Multi-domain items** (a single inbox item that decomposes across multiple domains) → archive in the **primary domain** (whichever received the most substantial content); other domains get a cross-link in their timeline entries pointing to the archived original
+- **Discarded items** → delete outright. If it wasn't worth keeping, it's not worth archiving.
+
+### Why domain-local
+
+- **Locality**: source materials live near the knowledge they inform
+- **Hub-and-spoke links stay in-domain**: entity timeline entries link to an archive within the same domain tree, not back to a disconnected `inbox/` folder
+- **Domain self-containment**: aligns with fractal hierarchy — each domain carries its own audit trail
+- **Domain synthesis**: can audit what raw inputs contributed to a domain's knowledge
 
 ---
 
