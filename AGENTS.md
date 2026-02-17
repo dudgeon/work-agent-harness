@@ -18,6 +18,10 @@ These define how to think and act — load every session:
 
 ## Session Start Protocol
 
+<!-- ONBOARDING: Remove this block after completing first onboarding run -->
+> **First-time setup**: This harness has no personalized context yet. Run the [onboarding skill](skills/onboarding.md) to set up your company, team, stakeholders, and work domains before proceeding.
+<!-- /ONBOARDING -->
+
 1. Check `tasks.md` for pending items
 2. Read any relevant domain README.md files for current work
 3. Skills in `skills/` have frontmatter descriptions — match requests to skills before acting

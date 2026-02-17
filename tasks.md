@@ -15,18 +15,10 @@ Tasks may also appear in domain-specific files for local context, but this file 
 
 ## Active
 
-### Harness Build — Skills & Rules Port
-
-Remaining items from home-brain port (interactive triage — discuss before building):
-
-- [ ] rules/mcp-optimization.md — writing for discoverability; relevance TBD @agent
-- [ ] newsworthy-events.md — likely skip, too personal/family-specific @agent
-
 ### Harness Build — Post-Port
 
-- [ ] Personalize the harness: create initial context files (company-info.md, stakeholder-map.md, etc.) from real content @user
+- [x] Build /onboarding skill — guided conversational flow that asks the real user for requisite info (company, team, stakeholders, domains) and creates context files done:2026-02-16 @agent
 - [ ] Test inbox → triage → domain flow with real inbox items @agent
-- [ ] Validate cross-agent sync: test AGENTS.md changes propagate to Windsurf and Claude mirrors @agent
 - [ ] Create first domain from actual work content (don't pre-seed) @user
 
 ## Backlog
@@ -58,13 +50,21 @@ Deliverables:
 - [ ] Proactive periodic reports — agent offers weekly/monthly writeups on a cadence ("It's Friday — want a weekly writeup?"); start on-demand, graduate to proactive if pattern proves useful @agent
 - [ ] Entry density calibration — tune capture aggressiveness based on user feedback; currently defaults to "when in doubt, don't prompt" @user
 
+### Research Review
+
+- [ ] Review CoworkPowers analysis ([meta/research/coworkpowers-analysis.md](meta/research/coworkpowers-analysis.md)) — techniques for adoption and future expansion @user
+
+### Newsworthy Events — Revisit When Integrations Mature
+
+- [ ] Design newsworthy-events skill for corporate context — proactive surfacing of external signals (competitor moves, regulatory changes, industry news) from intranet and other corporate sources. Deferred: existing skills (inbox triage, domain-source-synthesis) cover ad-hoc and systematic cases today; revisit as corporate intranet/API integrations become available. @agent
+
 ### Other Backlog
 
 - [ ] Evaluate publishing/syncing pipeline options (GitHub Actions vs manual review)
 - [ ] Determine metadata-based vs path-based filtering for shareable content
 - [ ] Consider competitive-analysis template (referenced in README but not yet created)
 - [ ] Test Windsurf skill auto-invocation with `.windsurf/skills/` files
-- [ ] Define bidirectional linking rule for cross-domain content (primary home + source links via relative paths; integration via triage) @agent
+- [ ] Define bidirectional linking rule for cross-domain content — should trigger naturally when first real cross-domain content surfaces; primary home + source links via relative paths, integration via triage @agent
 
 ## Completed
 
@@ -74,3 +74,5 @@ Deliverables:
 - [x] rules/git-workflow.md — commit discipline and session boundaries folded into communication.md done:2026-02-13
 - [x] Work changelog — implemented changelog awareness rule, rollup skill, template scaffolding, and rule hooks done:2026-02-15
 - [x] Inbox triage enhancements — CriticMarkup enrichment pass, hub-and-spoke entity timelines, domain emergence and corpus backfill done:2026-02-16
+- [x] Skills & rules port complete (11/11) — mcp-optimization skipped (not relevant), newsworthy-events moved to backlog (revisit when corporate integrations mature) done:2026-02-16
+- [x] Cross-agent mirror sync validation — full verification passed, all 23 mirrors correct done:2026-02-16
