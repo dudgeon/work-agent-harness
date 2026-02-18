@@ -38,7 +38,7 @@ Key decisions captured:
 - **Contribution via PRs**: Agent drafts content, creates branch and PR; user reviews for privacy before merging
 - **Bidirectional flow**: WAH consumes external repo content AND contributes back; also supports creating new public repos from WAH domain content (externalization)
 
-Open questions (see spec Q1-Q5): repos-per-domain cardinality, external repo agent instructions approach, privacy scrubbing method, clone lifecycle, contribution granularity.
+All design questions resolved (see spec D1-D5): one repo per domain, ask at creation, agent-assisted scrubbing + user review, on-demand clone with active-domain fetch, batch contributions.
 
 Deliverables — Shared primitives (serve both public and team repos):
 

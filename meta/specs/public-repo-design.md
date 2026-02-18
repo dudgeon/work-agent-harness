@@ -1,7 +1,7 @@
 ---
 created: 2026-02-18
 updated: 2026-02-18
-status: draft
+status: decided
 tags: [spec, public-repo, external-repo, sync, publishing]
 ---
 
@@ -152,15 +152,16 @@ The public repo at `.repos/pm-knowledge/` has its own full structure — its own
 
 ### 4. Agent Behavior
 
-#### At session start (when working on an external-repo-linked domain):
+#### At session start:
 
-1. Check if `.repos/<name>` clone exists
-   - If not: `git clone <url> .repos/<name>`
-   - If yes: `git fetch origin` (don't auto-pull — user may have local changes)
-2. Check for upstream changes: `git log HEAD..origin/main --oneline`
-   - If changes exist, note them: "The PM Knowledge repo has 3 new commits since last pull."
-   - Pull if clean, flag conflicts if not
-3. Load the public repo's README/structure as additional domain context
+1. Read `context/external-repos.md` to know which external repos exist
+2. For repos linked to domains with **active tasks** in `tasks.md`:
+   - Check if `.repos/<name>` clone exists; if not, clone it
+   - `git fetch origin` (don't auto-pull — user may have local changes)
+   - Check for upstream changes: `git log HEAD..origin/main --oneline`
+   - If changes exist, note them: "The PM Knowledge repo has 3 new commits since last fetch."
+3. For repos linked to dormant domains (no active tasks): skip — fetch on demand when the user first works on that domain
+4. When starting work on a linked domain, load the external repo's README/structure as additional domain context
 
 #### When creating content in this domain:
 
@@ -185,30 +186,30 @@ If the domain uses domain-source-synthesis AND has an external repo:
 
 ### 5. Contributing Back (Push Workflow)
 
-When content in `_staging/` is ready for the public repo:
+Contributions accumulate in `_staging/` until a batch is ready. The agent offers to submit when staging reaches a meaningful threshold or when the user asks.
 
-1. **Agent prepares the content** in the public repo's format
+**Batch submission workflow:**
+
+1. **Agent prepares the batch** in the public repo's format
    - Reads the public repo's templates/conventions
-   - Adapts the WAH draft to match
-   - Strips any private references (company names, internal links, etc.)
-2. **Agent creates a branch** in the public repo clone:
+   - Adapts each WAH draft to match
+   - **Privacy scrub** (per D3): Scans each file against WAH context files for private patterns — company names, stakeholder names, internal URLs, project codenames, org-specific terminology. Flags or removes matches. Presents a scrub report to the user showing what was found and removed.
+2. **User reviews the scrubbed batch** — confirms content is safe for public
+3. **Agent creates a branch** in the public repo clone:
    ```bash
    cd .repos/pm-knowledge
-   git checkout -b contribute/technique-name
+   git checkout -b contribute/batch-YYYY-MM-DD
    ```
-3. **Agent writes the content** to the appropriate location in the public repo
-4. **Agent pushes and creates PR**:
+4. **Agent writes the content** to the appropriate locations in the public repo
+5. **Agent pushes and creates PR**:
    ```bash
-   git push -u origin contribute/technique-name
-   gh pr create --title "Add: technique-name" --body "..."
+   git push -u origin contribute/batch-YYYY-MM-DD
+   gh pr create --title "Add: [summary of batch]" --body "..."
    ```
-5. **User reviews the PR** — this is the critical privacy gate
-   - User checks for leaked private info
-   - User approves content quality for public audience
-   - User merges (or requests changes)
-6. **After merge**: Remove or archive the `_staging/` file in WAH; the public repo is now the SOR for this content
+6. **User merges** (or requests changes)
+7. **After merge**: Remove or archive the `_staging/` files in WAH; the public repo is now the SOR for this content
 
-**Privacy safeguard**: The agent should never auto-push to public repos. Every contribution requires explicit user action (reviewing the PR). The agent can draft, branch, and submit — but the user merges.
+**Privacy safeguard**: Two layers — agent-assisted scrubbing (automated pattern detection) AND user review (human judgment). The agent should never auto-push to public repos. Every contribution requires explicit user review of the scrubbed content before the PR is submitted.
 
 ### 6. Staying Current (Pull Workflow)
 
@@ -337,46 +338,27 @@ The team repo backlog item's deliverables can build on this spec's primitives:
 
 ---
 
-## Open Questions
+## Decisions
 
-### Q1: How Many Repos Per Domain?
+### D1: One External Repo Per Domain
 
-Can a domain link to multiple external repos?
+Each domain links to at most one external repo. No nested repos. If a domain spans multiple external repos, that's a signal to split the domain. This keeps content routing unambiguous — the agent always knows which external repo a domain's public content targets.
 
-- **a) One-to-one** (recommended) — Each domain links to at most one external repo. If a domain spans multiple external repos, it's a signal to split the domain.
-- **b) One-to-many** — A domain can link to multiple repos via a list in frontmatter. More flexible but harder to reason about content routing.
+### D2: Ask at Domain Creation
 
-### Q2: External Repo Agent Instructions
+When linking a domain to an external repo, ask the user what structure the external repo should have (if creating) or adapt to its existing structure (if linking to an existing repo). No blanket enforcement — each external repo's structure is decided case by case at the point of domain linkage.
 
-Should WAH enforce any structure on external repos?
+### D3: Agent-Assisted Privacy Scrubbing + User Review
 
-- **a) Opinionated at creation, independent after** (recommended) — When WAH scaffolds a new public repo, it includes AGENTS.md, templates, etc. based on WAH's patterns. After creation, the public repo evolves independently.
-- **b) Template sync** — Public repos periodically pull template updates from WAH (or a shared template repo). More consistent but more maintenance.
-- **c) No opinion** — WAH links to any repo regardless of structure. Maximum flexibility, but agent has to handle arbitrary structures.
+When contributing to a public repo, the agent actively scrubs content: scans for patterns that look private (company names from context files, stakeholder names, internal URLs, project codenames) and flags or removes them. The scrubbed content is then presented to the user for final review before the PR is submitted. Both layers — agent scrubbing AND user review — are required for public repos.
 
-### Q3: Privacy Scrubbing
+### D4: On-Demand Clone, Session-Start Fetch for Active Domains
 
-How aggressive should privacy scrubbing be when contributing to public repos?
+Clone repos on demand when the user first works on a linked domain. At session start, fetch (not pull) only clones linked to domains with active tasks in `tasks.md` — skip dormant domains to keep session start fast. If upstream changes are detected, note them ("PM Knowledge repo has 3 new commits since last fetch") but don't auto-pull. Pull explicitly when the user asks or when starting work on that domain.
 
-- **a) Manual review only** (recommended) — Agent drafts content, creates PR. User reviews for private info before merging. Simple, reliable.
-- **b) Agent-assisted scrubbing** — Agent scans for patterns that look private (company names from context files, stakeholder names, internal URLs) and flags them. Helpful but imperfect.
-- **c) Allowlist-based** — Only content explicitly marked `shareable: true` can be contributed. Safe but friction-heavy.
+### D5: Batch Contributions
 
-### Q4: Clone Lifecycle
-
-When should clones be created and updated?
-
-- **a) On demand** (recommended to start) — Clone when the user first works on a linked domain. Pull when the user explicitly asks or agent detects staleness. Low maintenance.
-- **b) Session start** — Auto-fetch all clones at session start. More current but slower session start. Worth considering after the pattern is established.
-- **c) Automated** — Background job (cron, GitHub Actions) keeps clones current. Most current but most infrastructure.
-
-### Q5: Contribution Granularity
-
-What's the right unit of contribution to a public repo?
-
-- **a) One PR per idea** (recommended) — Each knowledge entry or concept gets its own PR. Easy to review, accept, or reject individually.
-- **b) Batch PRs** — Accumulate contributions and submit periodically. Less PR noise but harder to review.
-- **c) User decides per case** — Agent always asks. Maximum flexibility but more friction.
+Accumulate contributions in `_staging/` and submit them as batched PRs rather than one PR per idea. This reduces PR noise on the public repo and lets the user review a coherent set of additions at once. The agent offers to submit a batch when staging reaches a meaningful threshold or when the user asks.
 
 ---
 
