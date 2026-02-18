@@ -54,6 +54,23 @@ Examples:
 - [ ] Waiting on legal review @user — blocked: 2026-02-05 (pending compliance sign-off)
 ```
 
+### Stakeholder Notification Tag
+
+When a task originated from a stakeholder request, add:
+
+```markdown
+- [ ] Add CSV export to reporting @agent — requested_by: stakeholder-x — notify_on_complete: stakeholder-x
+```
+
+- **`requested_by`** — who asked for this (attribution)
+- **`notify_on_complete`** — who should be informed when this is done (may differ from requester)
+
+**On completion**: when the agent marks a task done that carries `notify_on_complete`, it must surface the notification before closing out:
+
+> "This was requested by [name] — should I mark them as notified and update their profile?"
+
+If yes: add a timeline entry to the stakeholder's profile (see [stakeholder-intelligence.md](../skills/stakeholder-intelligence.md) — Completion Loop-Back). If no: note the declination in the task's `done:` line.
+
 ---
 
 ## Session Protocol

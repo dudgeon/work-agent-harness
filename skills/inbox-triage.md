@@ -117,8 +117,24 @@ This creates an audit trail: what came in, what happened to it, where it went.
 Some inbox items are destined for domains that use the [domain-source-synthesis](domain-source-synthesis.md) pattern. When triaging:
 
 1. **Check for domain tags** — if an item's frontmatter or content indicates a specific domain, check whether that domain has `pattern: domain-source-synthesis` in its README
-2. **Hand off to the pattern** — route the item to domain-source-synthesis for capture rather than filing it generically
+2. **Invoke capture** — call domain-source-synthesis's capture step to create a source file in the destination domain. This replaces "file generically," but triage retains control — you are not handing off, you are delegating one step.
 3. **Source vs non-source** — items with a source URL route to the capture workflow; items describing personal experience route to the organic idea workflow
+4. **Archive responsibility stays with triage** — after capture, continue to step 12 and archive the original inbox item. Domain-source-synthesis only captures; it does not archive. The inbox item must not remain after triage completes.
+
+### Multi-Domain Routing from a Single Inbox Note
+
+A single inbox item may contain substantive content for more than one source-synthesis domain. When this happens:
+
+- **Create one scoped source file per domain** — don't copy the full note. Each source file contains only the content relevant to that domain. The archived original is the full record; source files are purpose-built extracts.
+- **Identify domains by content, not just mention** — a note mentioning a stakeholder and a project both have content for both domains only if there's substantive material for each. Passing references don't warrant a source file.
+- **Act when routing is clear; propose when it's ambiguous** — if the content obviously belongs to two domains, create both source files without asking. If you're uncertain which domains apply (a sprawling brain dump, multiple overlapping topics), list your proposed routing and let the user confirm before creating source files.
+- **One archive, multiple source files** — the inbox item archives once (in the primary domain per the archiving rules). The other domains get source files only — no second archive copy.
+
+### Capture vs. Processing Invocation
+
+**Capture is automatic** — triage invokes it as part of routing. The user doesn't need to ask.
+
+**Processing (idea extraction) is always manual** — the user drives it: "process my queue", "extract ideas from the stakeholder-x meeting note", etc. Triage never triggers extraction. This keeps judgment-heavy work user-paced and avoids premature knowledge entries from notes that haven't been reviewed.
 
 ---
 

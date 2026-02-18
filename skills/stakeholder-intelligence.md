@@ -137,6 +137,28 @@ When you notice a shift, surface it:
 
 ---
 
+## Completion Loop-Back
+
+When a task marked `notify_on_complete: [stakeholder]` is completed (per [rules/task-system.md](../rules/task-system.md)):
+
+1. **Surface the notification need** — prompt the user: "This was requested by [stakeholder] — should I note them as notified?"
+2. **If yes**: Add a timeline entry to the stakeholder's profile:
+
+   ```markdown
+   ### YYYY-MM-DD — Notified: [feature/task name] completed
+
+   [One sentence on what was completed and why it was relevant to this stakeholder.]
+
+   Source: [task or project file](relative/path)
+   ```
+
+3. **Update the task**: append `notified: YYYY-MM-DD` to the done line, or note in the task's closing entry.
+4. **If no**: record nothing — the user has decided notification isn't warranted.
+
+This closes the feedback loop: stakeholder gives input → request is tracked with attribution → completion triggers notification → stakeholder's profile records the outcome.
+
+---
+
 ## Watch Out For
 
 **File sprawl.** Not everyone needs an individual file. Use the stakeholder map for lightweight tracking and only create files when there's enough context to justify it.

@@ -137,14 +137,26 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 tags: [source, domain-name]
 status: unread
-source_type: article|video|podcast|newsletter|book-chapter|organic|note
+source_type: article|video|podcast|newsletter|book-chapter|organic|note|stakeholder-feedback
 source_url: "https://..."
 author: "Primary voice"
 host: "Interviewer (if applicable)"
 published: YYYY-MM-DD
+attribution: "domains/path/to/stakeholder-file.md"  # stakeholder-feedback only
 summary: "Dense triage summary generated at capture."
 ---
 ```
+
+`attribution` is used only for `stakeholder-feedback` sources. It is a relative path to the stakeholder's domain file — the direct link that eliminates chain-following when tracing where a request came from.
+
+**Source types and their capture behavior:**
+
+| Type | Capture notes |
+|------|---------------|
+| `article` / `video` / `podcast` / `newsletter` / `book-chapter` | Standard capture. Fetch content; generate triage summary. |
+| `organic` | No source file — go directly to knowledge entry with `origin: organic`. |
+| `note` | Source file with Summary/Notes sections; no Raw Content needed. |
+| `stakeholder-feedback` | Meeting or conversation where a stakeholder provided feedback, requests, or requirements. Set `author` to the stakeholder. Set `attribution` to the stakeholder's domain path (e.g., `domains/stakeholders/stakeholder-x.md`). Do not fetch content — the source file is the structured capture of what was said. See Stakeholder Feedback below. |
 
 **Status lifecycle:** `unread` → `reading` → `read` → `processed`
 
@@ -193,14 +205,31 @@ tags: [knowledge, domain-name]
 status: draft|solid|canonical
 origin: sourced|organic|both
 featured: false
+requested_by: "stakeholder-name"   # only when extracted from a stakeholder-feedback source
 ---
 ```
 
 - `status`: Maturity — `draft` (initial extraction) → `solid` (validated by multiple sources or deep personal experience) → `canonical` (well-established)
 - `origin`: `sourced` (from external sources), `organic` (from personal experience), `both`
 - `featured`: Entries worth championing — candidates for sharing, adoption, or collateral building
+- `requested_by`: Present only when the idea/request originated from a stakeholder. Matches the stakeholder name used in the source file's `attribution` field. This enables direct attribution without chain-following.
 
-### 4. Organic Ideas
+### 4. Stakeholder Feedback
+
+When processing a `stakeholder-feedback` source:
+
+1. **Read the source file** — a structured capture of what the stakeholder said, not a raw article. There is nothing to "fetch."
+2. **Identify discrete requests** — each feature request, concern, or piece of feedback is its own item. Don't bundle.
+3. **For each item, decide**: Is this actionable (a request/feature/task) or informational (context, opinion, observation)?
+   - **Actionable** → create a task in `tasks.md` with `requested_by` and `notify_on_complete` tags (per [rules/task-system.md](../rules/task-system.md))
+   - **Informational** → create a knowledge entry in the relevant subdomain with `requested_by` in frontmatter
+4. **Route to the relevant subdomain** — a single meeting may produce items for multiple subdomains. Route each item where it belongs. Do not consolidate into one entry just because they came from one source.
+5. **Attribution must survive decomposition** — every extracted item (task or knowledge entry) must carry `requested_by: stakeholder-name` regardless of which subdomain it lands in. The stakeholder-feedback source file is the audit trail; the `requested_by` field on each item is the working surface.
+6. **Update source file status** — set `status: processed` and list the extracted items.
+
+**Why `notify_on_complete` matters here**: the stakeholder who gave feedback expects to hear when their requests are addressed. Stamping tasks at extraction time ensures this isn't lost when the task is worked on weeks later by someone with no memory of the source meeting.
+
+### 5. Organic Ideas
 
 When the user describes an idea from their own experience, not from an external source:
 
@@ -209,7 +238,7 @@ When the user describes an idea from their own experience, not from an external 
 3. If new → create knowledge entry with `origin: organic`, skip the source file step entirely
 4. If external sources are later found, add a Sources section and update `origin` to `both`
 
-### 5. Note Sources
+### 6. Note Sources
 
 Quick notes — ideas, techniques, observations — that are nascent and not yet backed by external sources. These represent kernels of ideas.
 
@@ -219,7 +248,7 @@ Quick notes — ideas, techniques, observations — that are nascent and not yet
 4. A note alone keeps a knowledge entry at `draft`. Promotion to `solid` requires corroboration from an external source or the user fleshing out the idea substantially
 5. When a real source corroborates a note, enrich the existing `draft` entry and promote to `solid`
 
-### 6. Featured Entries
+### 7. Featured Entries
 
 When the user marks an entry as important ("feature this", "this one matters", "mark as featured"):
 
@@ -228,7 +257,7 @@ When the user marks an entry as important ("feature this", "this one matters", "
 
 Featured entries are ideas worth championing — candidates for sharing with others, building collateral around, or driving adoption of.
 
-### 7. Review Reading Queue
+### 8. Review Reading Queue
 
 When the user asks "what's in my queue?" or "what should I read?":
 
@@ -236,7 +265,7 @@ When the user asks "what's in my queue?" or "what should I read?":
 2. List unread sources with their triage summaries
 3. Highlight read-but-unprocessed sources (unrealized value)
 
-### 8. Knowledge Gap Analysis
+### 9. Knowledge Gap Analysis
 
 When the user asks "where are the gaps?":
 
