@@ -67,11 +67,21 @@ Deferred: retroactive population from git history, proactive periodic reports, e
 - [ ] Create first domain from actual work content
 - [ ] Evaluate agentskills.io directory-based SKILL.md migration
 
-## Backlog
+## Backlog — External Repo Integration
+
+Design spec: [meta/specs/public-repo-design.md](specs/public-repo-design.md)
+
+WAH domains can link to external Git repos (public or team) where the external repo is SOR for shared knowledge and WAH is the private overlay. Subsumes the previous "publishing/syncing pipeline" and "metadata-based filtering" backlog items — the external repo model is the publishing mechanism.
+
+**Phase 0 — Primitives**: `.repos/` gitignore, `context/external-repos.md` template, `external_repo` domain frontmatter, AGENTS.md docs
+**Phase 1 — Read-Only**: Clone/link skill, agent reads external repo as domain context, `annotations/` for private notes
+**Phase 2 — Contribution**: `_staging/` workflow, PR creation skill, privacy review, post-merge cleanup
+**Phase 3 — Externalization**: Skill for creating new public repos from WAH domain content
+**Phase 4 — Team Repos**: Adapt primitives for team repo case (different contribution defaults, scaffolding)
+
+## Other Backlog
 
 - [ ] Evaluate GitHub Issues as task SoR — agent-managed issues with domain labels, mirrored in domain files with issue refs. Both Claude Code and Windsurf can use `gh` CLI. Revisit when tasks.md friction becomes real.
-- [ ] Publishing/syncing pipeline (GitHub Actions vs manual review)
-- [ ] Metadata-based vs path-based filtering for shareable content
 - [ ] Competitive analysis template
 - [ ] INDEX.md (when there's content to index)
 - [ ] skills/dictation-processing.md — lightweight voice-specific overlay (homonyms, speech artifacts, pronoun resolution) on top of inbox-triage + entity-verification
