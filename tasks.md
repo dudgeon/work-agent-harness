@@ -1,6 +1,6 @@
 ---
 created: 2026-02-09
-updated: 2026-02-16
+updated: 2026-02-18
 tags: [meta, tasks]
 status: active
 ---
@@ -23,25 +23,42 @@ Tasks may also appear in domain-specific files for local context, but this file 
 
 ## Backlog
 
-### Shared Team Context Repo Support
+### External Repo Integration (Public + Team)
 
-Design and build harness support for shared team knowledge repos. The harness is private by default, but workers often operate alongside a shared team repo. The harness needs to: create well-structured team repos, ingest/search them, and contribute back via PRs.
+WAH domains can optionally link to external Git repos where the external repo is the Source of Record for base/shared knowledge and WAH provides a private augmentation layer. Two subtypes: public repos (open/community knowledge bases) and team repos (org-internal shared knowledge).
+
+**Design spec**: [meta/specs/public-repo-design.md](meta/specs/public-repo-design.md)
 
 Key decisions captured:
 
-- **Independence**: Team repo is fully self-contained — own templates, rules, agent instructions. Cannot depend on any individual worker harness.
-- **Linking**: Harness tracks team repos via a lightweight config/index (e.g., `context/team-repos.md`) pointing to local clones. Guard against drift between local clone and canonical repo.
-- **Creation vs interaction**: Harness carries a spec for creating team repos (opinionated at creation). Once created, harness defers to the team repo's own norms/AGENTS.md.
-- **Primitives**: Team repo gets independent copies of templates/rules (forked from harness at creation, evolves independently).
-- **Shared structure**: Same primitives (domains, concepts, inbox) apply. Team repo includes its own agent instructions for onboarding and operations.
-- **Automation TBD**: No automation for who operates the team repo yet. Assume team members accept each other's PRs.
+- **Layered model**: External repo is SOR for shared knowledge; WAH domain is the private overlay (annotations, company context, unpublished drafts)
+- **Clone management**: External repos cloned to `.repos/` at WAH root (gitignored)
+- **Registry**: `context/external-repos.md` tracks all external repos and their linked domains
+- **Independence**: External repo is fully self-contained — own templates, rules, agent instructions
+- **Contribution via PRs**: Agent drafts content, creates branch and PR; user reviews for privacy before merging
+- **Bidirectional flow**: WAH consumes external repo content AND contributes back; also supports creating new public repos from WAH domain content (externalization)
 
-Deliverables:
+All design questions resolved (see spec D1-D5): one repo per domain, ask at creation, agent-assisted scrubbing + user review, on-demand clone with active-domain fetch, batch contributions.
+
+Deliverables — Shared primitives (serve both public and team repos):
+
+- [x] Add `.repos/` to WAH `.gitignore` @agent done:2026-02-18
+- [x] Create `context/external-repos.md` template @agent done:2026-02-18
+- [x] Add `external_repo` fields to domain template frontmatter @agent done:2026-02-18
+- [x] Document external repo concept in AGENTS.md @agent done:2026-02-18
+- [x] Add external repo phase to onboarding skill @agent done:2026-02-18
+- [ ] `skills/external-repo-link.md` — skill for cloning and linking an external repo to a domain @agent
+- [ ] `skills/external-repo-contribute.md` — skill for preparing and submitting PRs to external repos @agent
+
+Deliverables — Public repo specific:
+
+- [ ] `skills/external-repo-create.md` — skill for externalizing WAH domain content into a new public repo @agent
+- [ ] Privacy review checklist for public contributions @agent
+
+Deliverables — Team repo specific (builds on shared primitives):
 
 - [ ] `templates/team-repo/` — scaffold/spec for creating a new shared team context repo @agent
-- [ ] `skills/team-repo-create.md` — skill for bootstrapping a new team repo from the spec @agent
-- [ ] `skills/team-repo-interact.md` — skill for searching, ingesting, and contributing PRs to a team repo @agent
-- [ ] `context/team-repos.md` pattern — lightweight index of team repos the worker interacts with @agent
+- [ ] Team-specific contribution defaults (more frequent, less guarded than public) @agent
 - [ ] Update AGENTS.md to document team repo integration model @agent
 
 ### Work Changelog — Deferred
@@ -60,8 +77,6 @@ Deliverables:
 
 ### Other Backlog
 
-- [ ] Evaluate publishing/syncing pipeline options (GitHub Actions vs manual review)
-- [ ] Determine metadata-based vs path-based filtering for shareable content
 - [ ] Consider competitive-analysis template (referenced in README but not yet created)
 - [ ] Test Windsurf skill auto-invocation with `.windsurf/skills/` files
 - [ ] Define bidirectional linking rule for cross-domain content — should trigger naturally when first real cross-domain content surfaces; primary home + source links via relative paths, integration via triage @agent

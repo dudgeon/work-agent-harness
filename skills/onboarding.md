@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: Guided harness personalization for new users. Walk through company, team, stakeholders, and work domains to create context files. Explains key concepts (domains, inbox, projects) along the way. Re-runnable — detects existing context and extends it.
+description: Guided harness personalization for new users. Walk through company, team, stakeholders, work domains, inbox workflow, and external repo linking to create context files. Explains key concepts along the way. Re-runnable — detects existing context and extends it.
 ---
 
 # Onboarding
@@ -37,6 +37,7 @@ Check for existing context files:
 context/company-info.md
 context/stakeholder-map.md
 context/team.md
+context/external-repos.md
 domains/*/README.md
 ```
 
@@ -185,6 +186,34 @@ This is the most conceptually new phase. Take time to explain.
 
 ---
 
+### Phase 6: External Repos (Optional)
+
+Only offer this phase if the user created domains in Phase 4. Skip if no domains were created or if the user is clearly done.
+
+**How to introduce external repos:**
+
+> "One more thing — some of your domains might overlap with knowledge that could live in a shared or public repo. For example, if you have a domain about a technology or discipline, the general knowledge could live in a public GitHub repo (useful for your portfolio, community contributions, or team sharing), while your company-specific context stays private here.
+>
+> The harness supports this with **external repos** — you link a domain to a public or team Git repo, and the harness becomes a private overlay on top of it. The external repo is the source of record for shared knowledge; your harness adds company context, personal annotations, and unpublished drafts.
+>
+> You can also start a domain fully private and fork the public content out later when it's mature enough."
+
+**Questions to ask:**
+
+1. Do any of the domains we just set up have knowledge that could be shared publicly or with your team?
+2. Are there existing public or team repos you already use as knowledge references? (GitHub repos, team wikis that could become repos, etc.)
+3. For any domain you'd want to link: should we connect to an existing repo, or would you create one later?
+
+**What to do based on answers:**
+
+- **"Yes, link to existing repo"** → Clone the repo to `.repos/`, add `external_repo` frontmatter to the domain README, create `context/external-repos.md` from [templates/external-repos.md](../templates/external-repos.md), set up overlay directories (`_private/`, `annotations/`, `_staging/`)
+- **"Yes, but I'll create the repo later"** → Note the intent in the domain README's Open Questions section. Add a task to `tasks.md`: "Create public repo for [domain] and configure external repo link"
+- **"No, everything stays private"** → That's fine. Move on. This can always be revisited — domains can start private and externalize later.
+
+**Don't over-sell.** External repos add workflow complexity. If the user doesn't have an immediate use case, don't push it. The option will be there when they need it.
+
+---
+
 ## After Onboarding
 
 ### Clean up the first-run directive
@@ -205,6 +234,7 @@ Remove everything from `<!-- ONBOARDING:` through `<!-- /ONBOARDING -->` inclusi
 > - **Context files**: [list files created]
 > - **Domains**: [list domains created]
 > - **Stakeholders**: [count] people captured
+> - **External repos**: [list any linked repos, or "none yet — you can link repos to domains anytime"]
 >
 > From here, the system will grow as you work. Drop things in the inbox, and I'll route them. Mention new people, and I'll add them. Start working in a domain, and the timeline will build itself.
 >
