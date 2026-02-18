@@ -73,7 +73,7 @@ Beyond the required `name` and `description`, the spec supports:
 | [stakeholder-intelligence.md](stakeholder-intelligence.md) | Track stakeholder profiles, multi-person interactions, relationship proximity | Workflow |
 | [domain-source-synthesis.md](domain-source-synthesis.md) | Systematically build a knowledge base from sources within a domain | Pattern / Workflow |
 | [changelog-rollup.md](changelog-rollup.md) | Aggregate timeline entries into reports for reviews, updates, and retrospectives | Workflow |
-| [onboarding.md](onboarding.md) | Guided harness personalization — walk through company, team, stakeholders, domains; explains concepts along the way | Workflow |
+| [onboarding.md](onboarding.md) | Guided harness personalization — walk through company, team, stakeholders, domains, inbox, external repos; explains concepts along the way | Workflow |
 | [agent-control-mirror-sync.md](agent-control-mirror-sync.md) | Verify and repair sync state across all agent mirror files | Maintenance |
 
 ---

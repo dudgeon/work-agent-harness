@@ -42,10 +42,11 @@ All design questions resolved (see spec D1-D5): one repo per domain, ask at crea
 
 Deliverables — Shared primitives (serve both public and team repos):
 
-- [ ] Add `.repos/` to WAH `.gitignore` @agent
-- [ ] Create `context/external-repos.md` template @agent
-- [ ] Add `external_repo` fields to domain template frontmatter @agent
-- [ ] Document external repo concept in AGENTS.md @agent
+- [x] Add `.repos/` to WAH `.gitignore` @agent done:2026-02-18
+- [x] Create `context/external-repos.md` template @agent done:2026-02-18
+- [x] Add `external_repo` fields to domain template frontmatter @agent done:2026-02-18
+- [x] Document external repo concept in AGENTS.md @agent done:2026-02-18
+- [x] Add external repo phase to onboarding skill @agent done:2026-02-18
 - [ ] `skills/external-repo-link.md` — skill for cloning and linking an external repo to a domain @agent
 - [ ] `skills/external-repo-contribute.md` — skill for preparing and submitting PRs to external repos @agent
 

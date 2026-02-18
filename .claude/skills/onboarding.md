@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: Guided harness personalization for new users. Walk through company, team, stakeholders, and work domains to create context files. Explains key concepts (domains, inbox, projects) along the way. Re-runnable — detects existing context and extends it.
+description: Guided harness personalization for new users. Walk through company, team, stakeholders, work domains, inbox workflow, and external repo linking to create context files. Explains key concepts along the way. Re-runnable — detects existing context and extends it.
 ---
 
 # Onboarding (Claude Mirror)

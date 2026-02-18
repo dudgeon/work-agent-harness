@@ -73,11 +73,27 @@ Design spec: [meta/specs/public-repo-design.md](specs/public-repo-design.md)
 
 WAH domains can link to external Git repos (public or team) where the external repo is SOR for shared knowledge and WAH is the private overlay. Subsumes the previous "publishing/syncing pipeline" and "metadata-based filtering" backlog items — the external repo model is the publishing mechanism.
 
-**Phase 0 — Primitives**: `.repos/` gitignore, `context/external-repos.md` template, `external_repo` domain frontmatter, AGENTS.md docs
+**Phase 0 — Primitives** *(done)*: `.repos/` gitignore, `context/external-repos.md` template, `external_repo` domain frontmatter, AGENTS.md docs, onboarding flow updated
 **Phase 1 — Read-Only**: Clone/link skill, agent reads external repo as domain context, `annotations/` for private notes
-**Phase 2 — Contribution**: `_staging/` workflow, PR creation skill, privacy review, post-merge cleanup
-**Phase 3 — Externalization**: Skill for creating new public repos from WAH domain content
+**Phase 2 — Contribution**: `_staging/` workflow, PR creation skill, privacy scrub + review, post-merge cleanup
+**Phase 3 — Externalization**: Skill for creating new public repos from WAH domain content (see migration path below)
 **Phase 4 — Team Repos**: Adapt primitives for team repo case (different contribution defaults, scaffolding)
+
+### Migration Path: Private Domain → Public Repo
+
+A domain can start fully private and later externalize its public-worthy content into a new repo. This is the expected common path — most domains begin as private knowledge accumulation and only externalize once the content is mature and valuable enough to share.
+
+**The migration workflow:**
+
+1. **Accumulate** — Domain grows normally as private WAH content. No special setup needed.
+2. **Identify** — User (or agent during domain synthesis) recognizes that a portion of the domain's knowledge is generally applicable and worth sharing.
+3. **Audit** — Agent classifies each file in the domain: public-ready, needs scrubbing, or inherently private. Presents the classification for user review.
+4. **Scaffold** — Agent creates a new public GitHub repo with its own AGENTS.md, README, and structure tailored to the domain's content. User decides structure at creation time (per D2).
+5. **Seed** — Public-ready content is moved to the new repo. Content needing scrubbing is cleaned and moved. Private content stays in WAH.
+6. **Reconfigure** — WAH domain becomes a private overlay: `external_repo` frontmatter added, overlay directories created (`_private/`, `annotations/`, `_staging/`), private content relocated to `_private/`.
+7. **Ongoing** — New generally applicable content goes to `_staging/` for batch PR contribution. Company-specific content stays in WAH.
+
+This is Phase 3 work — the externalization skill will guide this step by step. The key insight: **domains don't need to decide public vs private upfront**. Start private, graduate to externalized when the content proves its value.
 
 ## Other Backlog
 

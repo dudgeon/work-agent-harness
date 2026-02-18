@@ -118,11 +118,32 @@ template_version: 1
 - Over-link rather than under-link
 - When creating a note, add relevant backlinks to related notes
 
-## Publishing & Syncing Principles
+## External Repos (Public & Team Knowledge)
 
-- Default private — the agent identifies shareable content, the user approves
-- Imported knowledge tracks its source and sync state
-- Publishing mechanisms (GitHub Actions, manual review) are configured per-deployment, not baked into the framework
+WAH is private by default. But some knowledge belongs in shared public or team repos. The **external repo** pattern handles this:
+
+- A WAH domain can optionally link to an external Git repo (public or team) via `external_repo` in its frontmatter
+- The external repo is the **source of record** for shared knowledge; the WAH domain is the **private overlay** — company context, annotations, unpublished drafts
+- External repos are cloned to `.repos/` (gitignored by WAH) and tracked in `context/external-repos.md`
+- Contributions flow back via batched PRs with agent-assisted privacy scrubbing + user review
+- Domains can start private and later externalize public content into a new repo
+
+**WAH domain overlay structure** (when linked to an external repo):
+
+```
+domains/{domain}/
+├── _private/       # Company/personal content — never leaves WAH
+├── annotations/    # Private notes on external repo content
+├── _staging/       # Content being prepared for contribution back (batched PRs)
+└── README.md       # Links to external repo, declares overlay scope
+```
+
+**Agent behavior:**
+- At session start, fetch clones for domains with active tasks; skip dormant domains
+- When creating content in a linked domain, classify: generally applicable → `_staging/` for external repo; context-specific → `_private/`
+- When staging accumulates, offer to batch-submit as a PR with privacy scrub report
+
+Full design: [meta/specs/public-repo-design.md](meta/specs/public-repo-design.md)
 
 ## Self-Improvement — Session Retros
 
@@ -162,6 +183,7 @@ work-agent-harness/
 ├── inbox/                 # Unprocessed items (temporary)
 ├── domains/               # Knowledge base (fractal hierarchy)
 ├── context/               # Cross-domain reference materials
+├── .repos/                # External repo clones (gitignored)
 ├── .windsurf/             # Windsurf-specific mirrors
 │   ├── rules/
 │   └── skills/
